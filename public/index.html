@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wikimedia Donor Information</title>
+    <style>
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #f2f2f2;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+      }
+      form {
+        border: 1px solid #c6c7cc;
+        border-radius: 5px;
+        font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+        overflow: hidden;
+        width: 60%;
+        background-color: white;
+      }
+      section {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+      }
+      fieldset {
+        border: 0;
+        margin: 0;
+        padding: 0;
+      }
+      legend {
+        font: 30px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-align: center;
+        padding: 5px;
+        color: #293f50;
+      }
+      input {
+        border-radius: 5px;
+        font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin: 0;
+      }
+      textarea {
+        font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica,
+          Arial, sans-serif;
+      }
+
+      .account-info {
+        padding: 20px 20px 0 20px;
+        width: 40%;
+      }
+      .account-info label {
+        color: #395870;
+        display: block;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .account-info input {
+        background: #fff;
+        border: 1px solid #c6c7cc;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+        color: #636466;
+        padding: 6px;
+        margin-top: 6px;
+        width: 100%;
+      }
+      .comment-info {
+        width: 40%;
+      }
+      .account-action {
+        background: #f0f0f2;
+        border-top: 1px solid #c6c7cc;
+        padding: 20px;
+      }
+      .account-action .btn {
+        background: linear-gradient(#49708f, #293f50);
+        border: 0;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
+        float: left;
+        padding: 8px 16px;
+      }
+      .account-action label {
+        color: #7c7c80;
+        font-size: 12px;
+        float: left;
+        margin: 10px 0 0 20px;
+      }
+      .other-info {
+        background: #fff;
+        color: #636466;
+        margin-top: 60px;
+        width: 40%;
+      }
+      .other-info label {
+        color: #395870;
+        display: block;
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+      .other-info input {
+        background: #fff;
+        color: #636466;
+        padding: 6px;
+        margin-top: 6px;
+        width: 100%;
+      }
+
+      .other-info select {
+        margin-bottom: 20px;
+      }
+      .contacts {
+        display: flex;
+      }
+
+      .contacts input {
+        margin-left: -116px;
+      }
+      .payments {
+        display: flex;
+      }
+
+      .payments input {
+        margin-left: -50px;
+      }
+
+      .prev-btn {
+        background: linear-gradient(#25dc81, #293f50);
+        border: 0;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bold;
+        float: left;
+        padding: 8px 16px;
+        position: absolute;
+        bottom: 280px;
+        right: 438px;
+      }
+
+      .pre-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+      }
+
+      .prev-items {
+        display: flex;
+        padding: 5px;
+      }
+
+      .prev-items :first-child {
+        margin-right: 3px;
+        font-weight: 700;
+        text-transform: capitalize;
+      }
+
+      @media (min-width: 960px) and (max-width: 1490px) {
+        .prev-btn {
+          bottom: 12%;
+          right: 24%;
+        }
+      }
+    </style>
+
+    <script>
+      function preview() {
+        textlname.innerText = document.donor_info.lName.value;
+        textlnametext.innerText = document.donor_info.lName.name;
+
+        textfname.innerText = document.donor_info.fName.value;
+        textfnametext.innerText = document.donor_info.fName.name;
+
+        textaddress.innerText = document.donor_info.address.value;
+        textaddresstext.innerText = document.donor_info.address.name;
+
+        textcity.innerText = document.donor_info.city.value;
+        textcitytext.innerText = document.donor_info.city.name;
+
+        textregion.innerText = document.donor_info.region.value;
+        textregiontext.innerText = document.donor_info.region.name;
+
+        textcode.innerText = document.donor_info.code.value;
+        textcodetext.innerText = document.donor_info.code.name;
+
+        textphonenumber.innerText = document.donor_info.phone.value;
+        textphonenumbertext.innerText = document.donor_info.phone.name;
+
+        textemail.innerText = document.donor_info.email.value;
+        textemailtext.innerText = document.donor_info.email.name;
+
+        textcountry.innerText = document.donor_info.country.value;
+        textcountrytext.innerText = document.donor_info.country.name;
+
+        textcontact.innerText = document.donor_info.contact.value;
+        textcontacttext.innerText = document.donor_info.contact.name;
+
+        textpayments.innerText = document.donor_info.payment.value;
+        textpaymentstext.innerText = document.donor_info.payment.name;
+
+        textfrequency.innerText = document.donor_info.frequency.value;
+        textfrequencytext.innerText = document.donor_info.frequency.name;
+
+        textamount.innerText = document.donor_info.amount.value;
+        textamounttext.innerText = document.donor_info.amount.name;
+
+        textcomments.innerText = document.donor_info.comments.value;
+        textcommentstext.innerText = document.donor_info.comments.name;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <form name="donor_info" action="/donor" method="POST">
+        <legend>Your Information</legend>
+        <section>
+          <fieldset class="account-info">
+            <label>
+              Last Name
+              <input type="text" id="lName" name="lName" required />
+            </label>
+            <label>
+              First Name
+              <input type="text" id="fName" name="fName" required />
+            </label>
+            <label>
+              Street Address
+              <input type="text" id="address" name="address" required />
+            </label>
+            <label>
+              City
+              <input type="text" id="city" name="city" required />
+            </label>
+            <label>
+              State/Region
+              <input type="text" id="region" name="region" required />
+            </label>
+            <label>
+              Postal Code
+              <input type="text" id="code" name="code" required />
+            </label>
+            <label>
+              Phone Number
+              <input type="text" id="phone" name="phone" required />
+            </label>
+            <label>
+              Email
+              <input type="email" id="email" name="email" required />
+            </label>
+          </fieldset>
+          <fieldset class="other-info">
+            <label> Country </label>
+            <select name="country" id="counrty" required>
+              <option value="Ireland" selected>Ireland</option>
+              <option value="Uganda">Uganda</option>
+              <option value="Norway">Norway</option>
+              <option value="USA">USA</option>
+              <option value="China">China</option>
+            </select>
+
+            <label> Please choose your preferred form of contact </label>
+            <select name="contact" id="contact" required>
+              <option value="Phone" selected>Phone</option>
+              <option value="Email">Email</option>
+            </select>
+            <label> Please choose your preferred form of payment </label>
+            <select name="payment" id="payment" required>
+              <option value="USD" selected>USD</option>
+              <option value="Euro">Euro</option>
+              <option value="Bitcoin">Bitcoin</option>
+            </select>
+            <label> Donation Frequency </label>
+            <select name="frequency" id="frequency" required>
+              <option value="monthly">monthly</option>
+              <option value="Yearly" selected>Yearly</option>
+              <option value="One-time">One-time</option>
+            </select>
+            <label>
+              Donation Amount
+              <input type="number" id="amount" name="amount" required />
+            </label>
+            <fieldset class="comment-info">
+              <label>
+                Comments
+                <textarea
+                  id="comments"
+                  name="comments"
+                  value="comments"
+                  rows="4"
+                  cols="60"
+                ></textarea>
+              </label>
+            </fieldset>
+          </fieldset>
+        </section>
+        <fieldset class="account-action">
+          <input class="btn" type="submit" name="submit" value="submit" />
+        </fieldset>
+      </form>
+      <input
+        type="button"
+        class="prev-btn"
+        value="Preview Info"
+        onClick="preview()"
+      />
+    </div>
+    <div class="pre-container">
+      <div class="prev-items">
+        <span id="textlnametext"></span>
+        <span id="textlname"></span>
+      </div>
+
+      <div class="prev-items">
+        <span id="textfnametext"></span>
+        <span id="textfname"></span>
+      </div>
+
+      <div class="prev-items">
+        <span id="textaddresstext"></span>
+        <span id="textaddress"></span>
+      </div>
+
+      <div class="prev-items">
+        <span id="textcitytext"></span>
+        <span id="textcity"></span>
+      </div>
+
+      <div class="prev-items">
+        <span id="textregiontext"></span>
+        <span id="textregion"></span>
+      </div>
+
+      <div class="prev-items">
+        <span id="textcountrytext"></span>
+        <span id="textcountry"></span>
+      </div>
+
+      <div class="prev-items">
+        <span id="textcodetext"></span>
+        <span id="textcode"></span>
+      </div>
+
+      <div class="prev-items">
+        <span id="textphonenumbertext"></span>
+        <span id="textphonenumber"></span>
+      </div>
+
+      <div class="prev-items">
+        <span id="textemailtext"></span>
+        <span id="textemail"></span>
+      </div>
+
+      <div class="prev-items">
+        <span id="textcontacttext"></span>
+        <span id="textcontact"></span>
+      </div>
+
+      <div class="prev-items">
+        <span id="textpaymentstext"></span>
+        <span id="textpayments"></span>
+      </div>
+
+      <div class="prev-items">
+        <span id="textfrequencytext"></span>
+        <span id="textfrequency"></span>
+      </div>
+
+      <div class="prev-items">
+        <span id="textamounttext"></span>
+        <span id="textamount"></span>
+      </div>
+
+      <div class="prev-items">
+        <span id="textcommentstext"></span>
+        <span id="textcomments"></span>
+      </div>
+    </div>
+  </body>
+</html>
