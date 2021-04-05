@@ -19,8 +19,8 @@ A simple app that collects and store information about potential Wikimedia found
 
 ### App setup and installation
 
-- Run `git clone https://github.com/hariclerry/wikimedia-donor-info-system.git` to clone the repository.
-- Cd into the `wikimedia-donor-info-system` directory
+- Run `git clone https://github.com/hariclerry/wikimedia-donor-info-system.git` in the terminal to clone the repository.
+- Change directory into the `wikimedia-donor-info-system` directory
 
 ### Database and Configuration
 
@@ -40,7 +40,7 @@ npm install
 npm run dev
 ```
 
-The app should be running on localhost with the designated port. Navigate to the browser and enter the app url to display the index page, for example `http://127.0.0.1:8000/`.
+The app should be running on localhost with the designated port. Navigate to the browser and enter the app url to display the index page, for example `http://127.0.0.1:8080/`.
 
 #### To run tests
 
