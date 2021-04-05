@@ -4,8 +4,8 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "clerry",
-    database: "wikimediadb"
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE_NAME
 });
 connection.connect(function (err) {
     if (err) throw err;

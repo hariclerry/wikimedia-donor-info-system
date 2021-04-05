@@ -1,7 +1,10 @@
-const hostname = '127.0.0.1';
-const port = 8000;
+const dotenv = require("dotenv");
+const server = require("./src/routes/routes");
 
-const server = require('./src/routes/routes');
+dotenv.config();
+
+const hostname = "127.0.0.1";
+const port = process.env.PORT || "8000";
 
 server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
