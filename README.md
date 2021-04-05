@@ -19,7 +19,7 @@ A simple app that collects and store information about potential Wikimedia found
 
 ### App setup and installation
 
-- Clone the repository [here](https://github.com/hariclerry/wikimedia-donor-info-system.git)
+- Run `git clone https://github.com/hariclerry/wikimedia-donor-info-system.git` to clone the repository.
 - Cd into the `wikimedia-donor-info-system` directory
 
 ### Database and Configuration
