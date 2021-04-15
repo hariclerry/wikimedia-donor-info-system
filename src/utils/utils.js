@@ -7,7 +7,7 @@ const serveStaticFILE = (request, response) => {
     var filePath = basePath + request.url;
 
     var contentType = 'text/html';
-    var extname = path.extname('filePath');
+    var extname = path.extname(filePath);
     //get right Content-Type
     switch (extname) {
         case '.js':
